@@ -4,13 +4,13 @@ I am going to be creating a game that will be very similar to stick run. There w
 
 ## Needs to have List
 
-1- Obstacles:
+Obstacles:
  * There needs to be some collison obstacles that randomly comes during the run every few meters the character runs. The character will have ability to dodge those obstacles.
-2- Terrain:
+Terrain:
  * There will be a terrain running in the background instead of a image to play the game look cooler
-3- Shop and currency:
+Shop and currency:
  * Providing the player to have a shop where they can customize what they want to buy with in-game currency
-4- Sound and effect:
+Sound and effect:
  * Making sure that if character jumps or hit something then theres some noise/sound effect. But also giving the user the ability to close the sound if they want.
 
 ## Nice to have List
