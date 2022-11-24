@@ -19,6 +19,7 @@ Sound and effect:
 ## Nice to have List
 
 - Having multiplayer setup would be a great thing
-- It would be great if I learn how to make the game go infinitely long but also keeping the possiblity to make it impossible
+- It would be great if I learn how to make the game go infinitely long
+- An ability for users to make their own maps and challenge themselves to complete them on their own
 
 
