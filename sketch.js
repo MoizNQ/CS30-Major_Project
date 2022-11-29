@@ -9,6 +9,9 @@ let state;
 // Global code for Terrain
 let terrain = [];
 let initialPoint = 0;
+let stickFigure;
+let item1, item2, item3, item4, item5, item6, item7, item8, item9, item10;
+
 
 
 function setup() {
