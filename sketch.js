@@ -11,6 +11,7 @@ let terrain = [];
 let initialPoint = 0;
 let stickFigure;
 let item1, item2, item3, item4, item5, item6, item7, item8, item9, item10;
+let bgImage;
 
 
 
@@ -21,6 +22,10 @@ function setup() {
 
 function draw() {
   background(220);
+
+  // if (state === "start") {
+  //   mainScreen();
+  // }
   // Allowing the code buildingTerrain(bg) to execute with the help of the following code
   /* 
   if (state === playing) {
@@ -32,6 +37,10 @@ function draw() {
     }
   } 
   */
+}
+
+function preload() {
+  bgImage = loadImage("assets/backgroundimage.jfif");
 }
 
 // drawing a terrain that would work as a background for the game
@@ -51,3 +60,38 @@ function drawMoutains(x, mountainHeight, mountainWidth) {
   rect(x, y, mountainWidth, mountainHeight);
   fill("gray");
 }
+
+// function mainScreen() {
+//   image(bgImage, 0, 0, windowWidth, windowHeight);
+//   let gradient = drawingContext.createLinearGradient(width/2.5-200, width/2.5-200, height/2.5+150, height/2.5+200);
+//   gradient.addColorStop(0, color(254, 60, 110, 65));
+//   gradient.addColorStop(1, color(172, 60, 110, 65));
+//   rect(width/2.5, height/2.5, 250, 150, 20);
+//   stroke(255);
+//   strokeWeight(1);
+
+//   if (mouseInsideRect(windowWidth/2.5, windowWidth/2.5+250, windowHeight/2.5, windowHeight/2.5+150)) {
+//     drawingContext.strokeStyle = gradient;
+//     textSize(50);
+//     text("START", width/2.1, height/1.95,);
+//     textFont("Georgia");
+
+//   }
+//   else {
+//     drawingContext.fillStyle = gradient;
+//     textSize(50);
+//     text("START", width/2.1, height/1.95,);  
+//     textFont("Georgia");
+//   }
+  
+// }
+
+// function mouseInsideRect(left, right, top, bottom) {
+//   return mouseX >= left && mouseX <= right && mouseY >= top && mouseY <= bottom;
+// }
+
+// function mousePressed() {
+//   if (state === "start" && mouseInsideRect(windowWidth/2.5, windowWidth/2.5+250, windowHeight/2.5, windowHeight/2.5+150)) {
+//     state = "main";
+//   }
+// }
