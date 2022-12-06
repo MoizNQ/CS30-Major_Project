@@ -36,6 +36,18 @@ function draw() {
       initialPoint+= 20;
     }
   } 
+
+  if (state === "shop") {
+    characterShop();
+  }
+
+  if (state === "customizing") {
+    inventory();
+  }
+
+  if (state === "sounds") {
+    settings();
+  }
   */
 }
 
@@ -95,3 +107,15 @@ function drawMoutains(x, mountainHeight, mountainWidth) {
 //     state = "main";
 //   }
 // }
+
+function characterShop() {
+
+}
+
+function inventory() {
+
+}
+
+function settings() {
+
+}
