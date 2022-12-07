@@ -13,7 +13,22 @@ let stickFigure;
 let item1, item2, item3, item4, item5, item6, item7, item8, item9, item10;
 let bgImage;
 
+//Class that composes off all the basic coordinates
+class BasicCoordinates {
+  constructor(x, y, width, height) {
+    //position cords
+    this.x = x;
+    this.y = y;
+    this.width = width;
+    this.height = height;
+    this.mouse;
+  }
 
+  //check mouseover
+  mouseCheck() {
+    this.mouse = mouseX >= this.x && mouseX <= this.x + this.width && mouseY >= this.y && mouseY <= this.y + this.height;
+  }
+}
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -23,7 +38,7 @@ function setup() {
 function draw() {
   background(220);
 
-  // if (state === "start") {
+  // if (state === "main") {
   //   mainScreen();
   // }
   // Allowing the code buildingTerrain(bg) to execute with the help of the following code
@@ -36,6 +51,10 @@ function draw() {
       initialPoint+= 20;
     }
   } 
+
+  if (state === "play") {
+    startTheGame();
+  }
 
   if (state === "shop") {
     characterShop();
@@ -88,25 +107,10 @@ function drawMoutains(x, mountainHeight, mountainWidth) {
 //     text("START", width/2.1, height/1.95,);
 //     textFont("Georgia");
 
-//   }
-//   else {
-//     drawingContext.fillStyle = gradient;
-//     textSize(50);
-//     text("START", width/2.1, height/1.95,);  
-//     textFont("Georgia");
-//   }
+
+function playTheGame() {
   
-// }
-
-// function mouseInsideRect(left, right, top, bottom) {
-//   return mouseX >= left && mouseX <= right && mouseY >= top && mouseY <= bottom;
-// }
-
-// function mousePressed() {
-//   if (state === "start" && mouseInsideRect(windowWidth/2.5, windowWidth/2.5+250, windowHeight/2.5, windowHeight/2.5+150)) {
-//     state = "main";
-//   }
-// }
+}
 
 function characterShop() {
 
