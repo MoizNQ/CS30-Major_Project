@@ -12,6 +12,9 @@ let initialPoint = 0;
 let stickFigure;
 let item1, item2, item3, item4, item5, item6, item7, item8, item9, item10;
 let bgImage;
+// Global code for classes
+let mouseToggle;
+let mouse;
 
 //Class that composes off all the basic coordinates
 class BasicCoordinates {
@@ -27,6 +30,45 @@ class BasicCoordinates {
   //check mouseover
   mouseCheck() {
     this.mouse = mouseX >= this.x && mouseX <= this.x + this.width && mouseY >= this.y && mouseY <= this.y + this.height;
+  }
+}
+
+//Extension class responsible for clickable buttons
+class Button extends BasicCoordinates {
+  constructor(x, y, width, height, clickableText, textSize, textColor, clickable, hoveringShadow) {
+    super(x, y, width, height);
+    this.clickableText = clickableText;
+    this.textColor = textColor;
+    this.textSize = textSize;
+    this.clickable = clickable;
+    this.hoveringShadow = hoveringShadow;
+  }
+
+  //function to call to use buttons previously created
+  run() {
+    this.checkMouse();
+
+    fill(65, 155, 255);
+    noStroke();
+    rect(this.x, this.y, this.width, this.height);
+    if(this.mouse) {
+      cursor(this.hoveringShadow);
+      //image(images.buttonborder2, this.x - this.width * 0.026, this.y - this.height * 0.2, this.width * 1.052, this.height * 1.43);
+    }
+    else {
+      //image(images.buttonborder, this.x - this.width * 0.026, this.y - this.height * 0.2, this.width * 1.052, this.height * 1.43);
+    }
+
+    fill(this.textColor);
+    strokeWeight(1);
+    textSize(this.textSize);
+    text(this.clickableText, this.x + this.width / 2, this.y + this.height / 2);
+
+    if(this.mouse && mouseIsPressed && !mouse) {
+      mouseToggle = 1;
+      this.clickable();
+    }
+
   }
 }
 
