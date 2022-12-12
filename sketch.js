@@ -53,22 +53,31 @@ class Button extends BasicCoordinates {
     rect(this.x, this.y, this.width, this.height);
     if(this.mouse) {
       cursor(this.hoveringShadow);
-      //image(images.buttonborder2, this.x - this.width * 0.026, this.y - this.height * 0.2, this.width * 1.052, this.height * 1.43);
+      // image(images.buttonborder2, this.x - this.width * 0.026, this.y - this.height * 0.2, this.width * 1.052, this.height * 1.43);
     }
     else {
-      //image(images.buttonborder, this.x - this.width * 0.026, this.y - this.height * 0.2, this.width * 1.052, this.height * 1.43);
+      // image(images.buttonborder, this.x - this.width * 0.026, this.y - this.height * 0.2, this.width * 1.052, this.height * 1.43);
     }
 
     fill(this.textColor);
     strokeWeight(1);
     textSize(this.textSize);
-    text(this.clickableText, this.x + this.width / 2, this.y + this.height / 2);
+    text(this.buttonText, this.x + this.width / 2, this.y + this.height / 2);
+
+    if(this.mouse && mouseIsPressed && !mouse) {
+      mouseToggle = 1;
+      this.clickedOn();
+    }
+
+    fill(this.textColor);
+    strokeWeight(1);
+    textSize(this.textSize);
+    text(this.clickable, this.x + this.width / 2, this.y + this.height / 2);
 
     if(this.mouse && mouseIsPressed && !mouse) {
       mouseToggle = 1;
       this.clickable();
     }
-
   }
 }
 
