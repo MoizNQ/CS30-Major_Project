@@ -10,7 +10,7 @@ let state;
 let terrain = [];
 let initialPoint = 0;
 let stickFigure;
-let item1, item2, item3, item4, item5, item6, item7, item8, item9, item10;
+let item1, item2, item3, item4;
 let bgImage;
 // Global code for classes
 let mouseToggle;
@@ -87,10 +87,11 @@ function setup() {
 }
 
 function draw() {
-  background(220);
+  
 
   // if (state === "main") {
   //   mainScreen();
+  background(bgImage, width, height);
   // }
   // Allowing the code buildingTerrain(bg) to execute with the help of the following code
   /* 
@@ -123,6 +124,10 @@ function draw() {
 
 function preload() {
   bgImage = loadImage("assets/backgroundimage.jfif");
+  item1 = loadImage("assets/hat1.png");
+  item2 = loadImage("assets/jester1.png");
+  item3 = loadImage("assets/sword.png");
+  item4 = loadImage("assets/shoe1.png");
 }
 
 // drawing a terrain that would work as a background for the game
@@ -158,6 +163,9 @@ function drawMoutains(x, mountainHeight, mountainWidth) {
 //     text("START", width/2.1, height/1.95,);
 //     textFont("Georgia");
 
+function allPressableButtons() {
+
+}
 
 function playTheGame() {
   
