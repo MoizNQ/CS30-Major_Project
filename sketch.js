@@ -11,6 +11,9 @@ let terrain = [];
 let initialPoint = 0;
 let stickFigure;
 let item1, item2, item3, item4;
+let move1, move2, move3, move4;
+let wear, wear1, wear2, wear3, wear4, wear5, wear6, wear7, wear8, wear9, wear10, wear11;
+let obstacle;
 let bgImage;
 // Global code for classes
 let mouseToggle;
@@ -124,10 +127,27 @@ function draw() {
 
 function preload() {
   bgImage = loadImage("assets/backgroundimage.jfif");
+  obstacle = loadImage("assets/obstacle.png");
   item1 = loadImage("assets/hat1.png");
   item2 = loadImage("assets/jester1.png");
   item3 = loadImage("assets/sword.png");
   item4 = loadImage("assets/shoe1.png");
+  move1 = loadImage("assets/character.png");
+  move2 = loadImage("assets/character1.png");
+  move3 = loadImage("assets/character2.png");
+  move4 = loadImage("assets/character3.png");
+  wear = loadImage("assets/Character-duplicate.png");
+  wear1 = loadImage("assets/full-costume1.png");
+  wear2 = loadImage("assets/full-costume2.png");
+  wear3 = loadImage("assets/hand1costume.png");
+  wear4 = loadImage("assets/hand1costume1.png");
+  wear5 = loadImage("assets/hat1.png");
+  wear6 = loadImage("assets/hat1costume1.png");
+  wear7 = loadImage("assets/hat1costume2.png");
+  wear8 = loadImage("assets/hat2costume.png");
+  wear9 = loadImage("assets/hat2costume1.png");
+  wear10 = loadImage("assets/hat2costume2.png");
+  wear11 = loadImage("assets/Shoe1costume.png");
 }
 
 // drawing a terrain that would work as a background for the game
