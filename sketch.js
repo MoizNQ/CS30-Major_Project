@@ -15,6 +15,7 @@ let move1, move2, move3, move4;
 let wear, wear1, wear2, wear3, wear4, wear5, wear6, wear7, wear8, wear9, wear10, wear11;
 let obstacle;
 let bgImage;
+let newCursor;
 // Global code for classes
 let mouseToggle;
 let mouse;
@@ -90,8 +91,7 @@ function setup() {
 }
 
 function draw() {
-  
-
+  showCursor();
   // if (state === "main") {
   //   mainScreen();
   background(bgImage, width, height);
@@ -150,6 +150,15 @@ function preload() {
   wear11 = loadImage("assets/Shoe1costume.png");
 }
 
+function showCursor() {
+  cursor("assets/newPointer.png");
+}
+
+function createButtons() {
+  playButton = new Button (width * 0.35, height * (13/24), width * 0.3, height / 8, width / 55, 0, openShop, "assets/cursors/shop.cur");
+  settingsButton = new Button 
+  inventoryButton = new Button 
+}
 // drawing a terrain that would work as a background for the game
 function buildingTerrain(bg) {
   let theMoutains = [];
@@ -186,6 +195,42 @@ function drawMoutains(x, mountainHeight, mountainWidth) {
 function allPressableButtons() {
 
 }
+
+// function spawnObstacles(){
+//   if (frameCount % 60 === 0){
+//     let obstacle = createWriter(600,165,10,40);
+//     obstacle.velocityX = -(6 + score/100);
+          
+//     //generate random obstacles
+//     let rand = Math.round(random(1,6));
+    
+//     switch(rand) {
+//     case 1: obstacle.addImage(obstacle);
+//       break;
+//     case 2: obstacle.addImage(obstacle);
+//       break;
+//     case 3: obstacle.addImage(obstacle);
+//       break;
+//     case 4: obstacle.addImage(obstacle);
+//       break;
+//     case 5: obstacle.addImage(obstacle);
+//       break;
+//     case 6: obstacle.addImage(obstacle);
+//       break;
+              
+//     default: break;
+   
+//     }
+    
+//     //assign scale and lifetime to the obstacle           
+//     obstacle.scale = 0.3;
+//     obstacle.lifetime = 300;
+    
+//     //add each obstacle to the group
+//     obstaclesGroup.add(obstacle);
+      
+//   }
+// }
 
 function playTheGame() {
   
