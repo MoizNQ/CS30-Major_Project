@@ -19,6 +19,7 @@ let newCursor;
 // Global code for classes
 let mouseToggle;
 let mouse;
+let pressTheButton, backButton;
 
 //Class that composes off all the basic coordinates
 class BasicCoordinates {
@@ -39,29 +40,17 @@ class BasicCoordinates {
 
 //Extension class responsible for clickable buttons
 class Button extends BasicCoordinates {
-  constructor(x, y, width, height, clickableText, textSize, textColor, clickable, hoveringShadow) {
+  constructor(x, y, width, height, clickableText, textSize, textColor, clickable) {
     super(x, y, width, height);
     this.clickableText = clickableText;
     this.textColor = textColor;
     this.textSize = textSize;
     this.clickable = clickable;
-    this.hoveringShadow = hoveringShadow;
   }
 
   //function to call to use buttons previously created
   run() {
     this.checkMouse();
-
-    fill(65, 155, 255);
-    noStroke();
-    rect(this.x, this.y, this.width, this.height);
-    if(this.mouse) {
-      cursor(this.hoveringShadow);
-      // image(images.buttonborder2, this.x - this.width * 0.026, this.y - this.height * 0.2, this.width * 1.052, this.height * 1.43);
-    }
-    else {
-      // image(images.buttonborder, this.x - this.width * 0.026, this.y - this.height * 0.2, this.width * 1.052, this.height * 1.43);
-    }
 
     fill(this.textColor);
     strokeWeight(1);
@@ -87,6 +76,7 @@ class Button extends BasicCoordinates {
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  createButtons();
   // terrain = buildingTerrain(20000); // code that builds the terrain
 }
 
@@ -148,6 +138,8 @@ function preload() {
   wear9 = loadImage("assets/hat2costume1.png");
   wear10 = loadImage("assets/hat2costume2.png");
   wear11 = loadImage("assets/Shoe1costume.png");
+  pressTheButton = loadImage("assets/buttons.png");
+  backButton = loadImage("assets/back-button.png");
 }
 
 function showCursor() {
@@ -155,10 +147,11 @@ function showCursor() {
 }
 
 function createButtons() {
-  playButton = new Button (width * 0.35, height * (13/24), width * 0.3, height / 8, width / 55, 0, openShop, "assets/cursors/shop.cur");
-  settingsButton = new Button 
-  inventoryButton = new Button 
+   playButton = new Button (width * 0.35, height * (7/24), width * 0.3, height / 8, width / 55, 0, PLAY GAME, "assets/buttons.png");
+   settingsButton = new Button (width * 0.55, height * (10/24), width * 0.3, height / 8, width / 55, 0, SETTINGS, "assets/buttons.png");
+   inventoryButton = new Button (width * 0.35, height * (13/24), width * 0.3, height / 8, width / 55, 0, INVENTORY, "assets/buttons.png");
 }
+
 // drawing a terrain that would work as a background for the game
 function buildingTerrain(bg) {
   let theMoutains = [];
@@ -233,17 +226,18 @@ function allPressableButtons() {
 // }
 
 function playTheGame() {
-  
+  state = "game";
+
 }
 
-function characterShop() {
-
+function mainMenu() {
+  state = "menu";
 }
 
 function inventory() {
-
+  state = "Assets";
 }
 
 function settings() {
-
+  state = "functions";
 }
