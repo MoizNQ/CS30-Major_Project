@@ -40,33 +40,14 @@ class BasicCoordinates {
 
 //Extension class responsible for clickable buttons
 class Button extends BasicCoordinates {
-  constructor(x, y, width, height, clickableText, textSize, textColor, clickable) {
+  constructor(x, y, width, height, clickable) {
     super(x, y, width, height);
-    this.clickableText = clickableText;
-    this.textColor = textColor;
-    this.textSize = textSize;
     this.clickable = clickable;
   }
 
   //function to call to use buttons previously created
   run() {
-    this.checkMouse();
-
-    fill(this.textColor);
-    strokeWeight(1);
-    textSize(this.textSize);
-    text(this.buttonText, this.x + this.width / 2, this.y + this.height / 2);
-
-    if(this.mouse && mouseIsPressed && !mouse) {
-      mouseToggle = 1;
-      this.clickedOn();
-    }
-
-    fill(this.textColor);
-    strokeWeight(1);
-    textSize(this.textSize);
-    text(this.clickable, this.x + this.width / 2, this.y + this.height / 2);
-
+    this.mouseCheck();
     if(this.mouse && mouseIsPressed && !mouse) {
       mouseToggle = 1;
       this.clickable();
@@ -77,11 +58,13 @@ class Button extends BasicCoordinates {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   createButtons();
+  Button.run();
   // terrain = buildingTerrain(20000); // code that builds the terrain
 }
 
 function draw() {
   showCursor();
+  
   // if (state === "main") {
   //   mainScreen();
   background(bgImage, width, height);
@@ -147,9 +130,9 @@ function showCursor() {
 }
 
 function createButtons() {
-   playButton = new Button (width * 0.35, height * (7/24), width * 0.3, height / 8, width / 55, 0, PLAY GAME, "assets/buttons.png");
-   settingsButton = new Button (width * 0.55, height * (10/24), width * 0.3, height / 8, width / 55, 0, SETTINGS, "assets/buttons.png");
-   inventoryButton = new Button (width * 0.35, height * (13/24), width * 0.3, height / 8, width / 55, 0, INVENTORY, "assets/buttons.png");
+  let playButton = new Button(width * 0.9, height * 0.1, width * 0.06, height * 0.06, settings, "assets/play.png");
+  let settingsButton = new Button(width * 0.9, height * 0.1, width * 0.06, height * 0.06, playTheGame, "assets/settings.png");
+  let inventoryButton = new Button(width * 0.9, height * 0.1, width * 0.06, height * 0.06, inventory, "assets/inventory.png");
 }
 
 // drawing a terrain that would work as a background for the game
@@ -227,7 +210,6 @@ function allPressableButtons() {
 
 function playTheGame() {
   state = "game";
-
 }
 
 function mainMenu() {
