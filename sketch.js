@@ -11,7 +11,7 @@ let terrain = [];
 let initialPoint = 0;
 let stickFigure;
 let item1, item2, item3, item4;
-let move1, move2, move3, move4;
+let move2, move1;
 let wear, wear1, wear2, wear3, wear4, wear5, wear6, wear7, wear8, wear9, wear10, wear11;
 let obstacle;
 let bgImage;
@@ -20,6 +20,13 @@ let newCursor;
 let mouseToggle;
 let mouse;
 let pressTheButton, backButton;
+let inventoryButton;
+let settingsButton;
+let playButton;
+let PLAY = 1;
+let RETRY = 0;
+let gameState = PLAY;
+
 
 //Class that composes off all the basic coordinates
 class BasicCoordinates {
@@ -58,7 +65,6 @@ class Button extends BasicCoordinates {
 function setup() {
   createCanvas(windowWidth, windowHeight);
   createButtons();
-  Button.run();
   // terrain = buildingTerrain(20000); // code that builds the terrain
 }
 
@@ -68,6 +74,7 @@ function draw() {
   // if (state === "main") {
   //   mainScreen();
   background(bgImage, width, height);
+  move2(100, 100, 5);
   // }
   // Allowing the code buildingTerrain(bg) to execute with the help of the following code
   /* 
@@ -106,9 +113,8 @@ function preload() {
   item3 = loadImage("assets/sword.png");
   item4 = loadImage("assets/shoe1.png");
   move1 = loadImage("assets/character.png");
-  move2 = loadImage("assets/character1.png");
-  move3 = loadImage("assets/character2.png");
-  move4 = loadImage("assets/character3.png");
+  move2 = loadAnimation("assets/character1.png", "assets/character1a.png", "assets/character1b.png");
+  move2.delay = 10;
   wear = loadImage("assets/Character-duplicate.png");
   wear1 = loadImage("assets/full-costume1.png");
   wear2 = loadImage("assets/full-costume2.png");
@@ -121,7 +127,6 @@ function preload() {
   wear9 = loadImage("assets/hat2costume1.png");
   wear10 = loadImage("assets/hat2costume2.png");
   wear11 = loadImage("assets/Shoe1costume.png");
-  pressTheButton = loadImage("assets/buttons.png");
   backButton = loadImage("assets/back-button.png");
 }
 
@@ -130,9 +135,9 @@ function showCursor() {
 }
 
 function createButtons() {
-  let playButton = new Button(width * 0.9, height * 0.1, width * 0.06, height * 0.06, settings, "assets/play.png");
-  let settingsButton = new Button(width * 0.9, height * 0.1, width * 0.06, height * 0.06, playTheGame, "assets/settings.png");
-  let inventoryButton = new Button(width * 0.9, height * 0.1, width * 0.06, height * 0.06, inventory, "assets/inventory.png");
+  playButton = new Button(width * 0.9, height * 0.1, width * 0.06, height * 0.06, settings, "assets/play.png");
+  settingsButton = new Button(width * 0.9, height * 0.1, width * 0.06, height * 0.06, playTheGame, "assets/settings.png");
+  inventoryButton = new Button(width * 0.9, height * 0.1, width * 0.06, height * 0.06, inventory, "assets/inventory.png");
 }
 
 // drawing a terrain that would work as a background for the game
